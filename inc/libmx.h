@@ -8,13 +8,28 @@
 #include <fcntl.h>
 #include <malloc/malloc.h>
 
-typedef struct  s_island {
-	char *p1;
-	char *p2;
+typedef struct s_dist {
+	char *point;
+	int index_point;
 	int dist;
-	int index_1;
-	int index_2;
+}				t_dist;
+
+typedef struct  s_island {
+	char *name;
+	int index_name;
+	int	routes_count;
+	struct s_dist *d;
 } 				t_island;
+
+typedef struct s_res {
+	int *road;
+	int *road_dist;
+	int dist;
+	int count;
+	struct s_res *next;
+}				t_res;
+
+
 
 void mx_printchar(char c);
 void mx_print_unicode(wchar_t c);

@@ -1,0 +1,288 @@
+leaks Report Version: 4.0
+Process 90218: 385 nodes malloced for 22 KB
+Process 90218: 203 leaks for 4256 total leaked bytes.
+
+    203 (4.16K) << TOTAL >>
+
+      8 (176 bytes) ROOT LEAK: 0x7f7f52c02ac0 [64]
+         1 (16 bytes) 0x7f7f52c00630 [16]  length: 6  "A-C,10"
+         1 (16 bytes) 0x7f7f52c00640 [16]  length: 5  "B-D,5"
+         1 (16 bytes) 0x7f7f52c00650 [16]  length: 5  "C-D,6"
+         1 (16 bytes) 0x7f7f52c00690 [16]  length: 1  "5"
+         1 (16 bytes) 0x7f7f52c006a0 [16]  length: 6  "A-B,11"
+         1 (16 bytes) 0x7f7f52c02b00 [16]  length: 6  "C-E,15"
+         1 (16 bytes) 0x7f7f52c02b10 [16]  length: 5  "D-E,4"
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c02c40 [32]
+         1 (16 bytes) 0x7f7f52c02b90 [16]  length: 1  "A"
+         1 (16 bytes) 0x7f7f52c02c60 [16]  length: 4  "B,11"
+         1 (16 bytes) 0x7f7f52c02c70 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c02cd0 [32]
+         1 (16 bytes) 0x7f7f52c02cf0 [16]  length: 1  "A"
+         1 (16 bytes) 0x7f7f52c02d00 [16]  length: 4  "C,10"
+         1 (16 bytes) 0x7f7f52c02d10 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c02e70 [32]
+         1 (16 bytes) 0x7f7f52c02e90 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c02ea0 [16]  length: 4  "E,15"
+         1 (16 bytes) 0x7f7f52c02eb0 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c02f80 [32]
+         1 (16 bytes) 0x7f7f52c02fa0 [16]  length: 1  "A"
+         1 (16 bytes) 0x7f7f52c02fb0 [16]  length: 4  "B,11"
+         1 (16 bytes) 0x7f7f52c02fc0 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c03020 [32]
+         1 (16 bytes) 0x7f7f52c03040 [16]  length: 1  "A"
+         1 (16 bytes) 0x7f7f52c03050 [16]  length: 4  "C,10"
+         1 (16 bytes) 0x7f7f52c03060 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c031c0 [32]
+         1 (16 bytes) 0x7f7f52c031e0 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c031f0 [16]  length: 4  "E,15"
+         1 (16 bytes) 0x7f7f52c03200 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c032d0 [32]
+         1 (16 bytes) 0x7f7f52c032f0 [16]  length: 1  "A"
+         1 (16 bytes) 0x7f7f52c03300 [16]  length: 4  "B,11"
+         1 (16 bytes) 0x7f7f52c03310 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c03360 [32]
+         1 (16 bytes) 0x7f7f52c03380 [16]  length: 1  "A"
+         1 (16 bytes) 0x7f7f52c03390 [16]  length: 4  "C,10"
+         1 (16 bytes) 0x7f7f52c033a0 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c03510 [32]
+         1 (16 bytes) 0x7f7f52c03530 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c03540 [16]  length: 4  "E,15"
+         1 (16 bytes) 0x7f7f52c03550 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c03630 [32]
+         1 (16 bytes) 0x7f7f52c03650 [16]  length: 1  "A"
+         1 (16 bytes) 0x7f7f52c03660 [16]  length: 4  "B,11"
+         1 (16 bytes) 0x7f7f52c03670 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c036c0 [32]
+         1 (16 bytes) 0x7f7f52c036e0 [16]  length: 1  "A"
+         1 (16 bytes) 0x7f7f52c036f0 [16]  length: 4  "C,10"
+         1 (16 bytes) 0x7f7f52c03700 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c03870 [32]
+         1 (16 bytes) 0x7f7f52c03890 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c038a0 [16]  length: 4  "E,15"
+         1 (16 bytes) 0x7f7f52c038b0 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c03990 [32]
+         1 (16 bytes) 0x7f7f52c039b0 [16]  length: 1  "A"
+         1 (16 bytes) 0x7f7f52c039c0 [16]  length: 4  "B,11"
+         1 (16 bytes) 0x7f7f52c039d0 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c03a20 [32]
+         1 (16 bytes) 0x7f7f52c03a40 [16]  length: 1  "A"
+         1 (16 bytes) 0x7f7f52c03a50 [16]  length: 4  "C,10"
+         1 (16 bytes) 0x7f7f52c03a60 [16]
+
+      4 (80 bytes) ROOT LEAK: 0x7f7f52c03bb0 [32]
+         1 (16 bytes) 0x7f7f52c03bd0 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c03be0 [16]  length: 4  "E,15"
+         1 (16 bytes) 0x7f7f52c03bf0 [16]
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c02c80 [32]
+         1 (16 bytes) 0x7f7f52c02ca0 [16]  length: 1  "B"
+         1 (16 bytes) 0x7f7f52c02cb0 [16]  length: 2  "11"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c02d20 [32]
+         1 (16 bytes) 0x7f7f52c02d40 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c02d50 [16]  length: 2  "10"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c02d70 [32]
+         1 (16 bytes) 0x7f7f52c02d90 [16]  length: 1  "B"
+         1 (16 bytes) 0x7f7f52c02da0 [16]  length: 3  "D,5"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c02db0 [32]
+         1 (16 bytes) 0x7f7f52c02dd0 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c02de0 [16]  length: 1  "5"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c02df0 [32]
+         1 (16 bytes) 0x7f7f52c02e10 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c02e20 [16]  length: 3  "D,6"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c02e30 [32]
+         1 (16 bytes) 0x7f7f52c02e50 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c02e60 [16]  length: 1  "6"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c02ec0 [32]
+         1 (16 bytes) 0x7f7f52c02ee0 [16]  length: 1  "E"
+         1 (16 bytes) 0x7f7f52c02ef0 [16]  length: 2  "15"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c02f00 [32]
+         1 (16 bytes) 0x7f7f52c02f20 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c02f30 [16]  length: 3  "E,4"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c02f40 [32]
+         1 (16 bytes) 0x7f7f52c02f60 [16]  length: 1  "E"
+         1 (16 bytes) 0x7f7f52c02f70 [16]  length: 1  "4"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c02fd0 [32]
+         1 (16 bytes) 0x7f7f52c02ff0 [16]  length: 1  "B"
+         1 (16 bytes) 0x7f7f52c03000 [16]  length: 2  "11"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03070 [32]
+         1 (16 bytes) 0x7f7f52c03090 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c030a0 [16]  length: 2  "10"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c030b0 [32]
+         1 (16 bytes) 0x7f7f52c030d0 [16]  length: 1  "B"
+         1 (16 bytes) 0x7f7f52c030e0 [16]  length: 3  "D,5"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c030f0 [32]
+         1 (16 bytes) 0x7f7f52c03110 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c03120 [16]  length: 1  "5"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03140 [32]
+         1 (16 bytes) 0x7f7f52c03160 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c03170 [16]  length: 3  "D,6"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03180 [32]
+         1 (16 bytes) 0x7f7f52c031a0 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c031b0 [16]  length: 1  "6"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03210 [32]
+         1 (16 bytes) 0x7f7f52c03230 [16]  length: 1  "E"
+         1 (16 bytes) 0x7f7f52c03240 [16]  length: 2  "15"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03250 [32]
+         1 (16 bytes) 0x7f7f52c03270 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c03280 [16]  length: 3  "E,4"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03290 [32]
+         1 (16 bytes) 0x7f7f52c032b0 [16]  length: 1  "E"
+         1 (16 bytes) 0x7f7f52c032c0 [16]  length: 1  "4"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03320 [32]
+         1 (16 bytes) 0x7f7f52c03340 [16]  length: 1  "B"
+         1 (16 bytes) 0x7f7f52c03350 [16]  length: 2  "11"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c033b0 [32]
+         1 (16 bytes) 0x7f7f52c033d0 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c033e0 [16]  length: 2  "10"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03400 [32]
+         1 (16 bytes) 0x7f7f52c03420 [16]  length: 1  "B"
+         1 (16 bytes) 0x7f7f52c03430 [16]  length: 3  "D,5"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03440 [32]
+         1 (16 bytes) 0x7f7f52c03460 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c03470 [16]  length: 1  "5"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03480 [32]
+         1 (16 bytes) 0x7f7f52c034a0 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c034b0 [16]  length: 3  "D,6"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c034c0 [32]
+         1 (16 bytes) 0x7f7f52c034e0 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c034f0 [16]  length: 1  "6"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03560 [32]
+         1 (16 bytes) 0x7f7f52c03580 [16]  length: 1  "E"
+         1 (16 bytes) 0x7f7f52c03590 [16]  length: 2  "15"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c035b0 [32]
+         1 (16 bytes) 0x7f7f52c035d0 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c035e0 [16]  length: 3  "E,4"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c035f0 [32]
+         1 (16 bytes) 0x7f7f52c03610 [16]  length: 1  "E"
+         1 (16 bytes) 0x7f7f52c03620 [16]  length: 1  "4"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03680 [32]
+         1 (16 bytes) 0x7f7f52c036a0 [16]  length: 1  "B"
+         1 (16 bytes) 0x7f7f52c036b0 [16]  length: 2  "11"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03710 [32]
+         1 (16 bytes) 0x7f7f52c03730 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c03740 [16]  length: 2  "10"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03750 [32]
+         1 (16 bytes) 0x7f7f52c03770 [16]  length: 1  "B"
+         1 (16 bytes) 0x7f7f52c03780 [16]  length: 3  "D,5"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03790 [32]
+         1 (16 bytes) 0x7f7f52c037b0 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c037c0 [16]  length: 1  "5"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c037e0 [32]
+         1 (16 bytes) 0x7f7f52c03800 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c03810 [16]  length: 3  "D,6"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03820 [32]
+         1 (16 bytes) 0x7f7f52c03840 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c03850 [16]  length: 1  "6"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c038c0 [32]
+         1 (16 bytes) 0x7f7f52c038e0 [16]  length: 1  "E"
+         1 (16 bytes) 0x7f7f52c038f0 [16]  length: 2  "15"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03900 [32]
+         1 (16 bytes) 0x7f7f52c03920 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c03930 [16]  length: 3  "E,4"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03940 [32]
+         1 (16 bytes) 0x7f7f52c03960 [16]  length: 1  "E"
+         1 (16 bytes) 0x7f7f52c03970 [16]  length: 1  "4"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c039e0 [32]
+         1 (16 bytes) 0x7f7f52c03a00 [16]  length: 1  "B"
+         1 (16 bytes) 0x7f7f52c03a10 [16]  length: 2  "11"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03a70 [32]
+         1 (16 bytes) 0x7f7f52c03a90 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c03aa0 [16]  length: 2  "10"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03ab0 [32]
+         1 (16 bytes) 0x7f7f52c03ad0 [16]  length: 1  "B"
+         1 (16 bytes) 0x7f7f52c03ae0 [16]  length: 3  "D,5"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03af0 [32]
+         1 (16 bytes) 0x7f7f52c03b10 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c03b20 [16]  length: 1  "5"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03b30 [32]
+         1 (16 bytes) 0x7f7f52c03b50 [16]  length: 1  "C"
+         1 (16 bytes) 0x7f7f52c03b60 [16]  length: 3  "D,6"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03b70 [32]
+         1 (16 bytes) 0x7f7f52c03b90 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c03ba0 [16]  length: 1  "6"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03c00 [32]
+         1 (16 bytes) 0x7f7f52c03c20 [16]  length: 1  "E"
+         1 (16 bytes) 0x7f7f52c03c30 [16]  length: 2  "15"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03c50 [32]
+         1 (16 bytes) 0x7f7f52c03c70 [16]  length: 1  "D"
+         1 (16 bytes) 0x7f7f52c03c80 [16]  length: 3  "E,4"
+
+      3 (64 bytes) ROOT LEAK: 0x7f7f52c03c90 [32]
+         1 (16 bytes) 0x7f7f52c03cb0 [16]  length: 1  "E"
+         1 (16 bytes) 0x7f7f52c03cc0 [16]  length: 1  "4"
+
+----------------
+Name = A, Index = 0 Routes Count = 2
+point name = B, index point = 1, distance = 11
+point name = C, index point = 2, distance = 10
+Name = B, Index = 1 Routes Count = 2
+point name = A, index point = 0, distance = 11
+point name = D, index point = 3, distance = 5
+Name = C, Index = 2 Routes Count = 3
+point name = A, index point = 0, distance = 10
+point name = D, index point = 3, distance = 6
+point name = E, index point = 4, distance = 15
+Name = D, Index = 3 Routes Count = 3
+point name = B, index point = 1, distance = 5
+point name = C, index point = 2, distance = 6
+point name = E, index point = 4, distance = 4
+Name = E, Index = 4 Routes Count = 2
+point name = C, index point = 2, distance = 15
+point name = D, index point = 3, distance = 4
