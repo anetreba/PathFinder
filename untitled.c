@@ -226,7 +226,6 @@ void init(bool *active_islands, int count)
 }
 
 t_res *mx_algorithm(t_island *p, t_res *lst, int count, int itter) {
-	mx_print_list(lst);
 	bool active_islands[count];
 	int i;
 	int *road = NULL;
@@ -234,6 +233,7 @@ t_res *mx_algorithm(t_island *p, t_res *lst, int count, int itter) {
 	int dist;
 	t_res *res = NULL;
 	int k = 0;
+
 	init(active_islands, count);
 	active_islands[itter] = false;
 	while (lst) {
@@ -418,6 +418,16 @@ t_res *mx_sort_list_res2(t_res *lst) {
 
 	if (i != size - 1) {
 		while (i < size) {
+			if (lst->road[lst->count - 1] > lst->next->road[lst->count - 1]) {
+					int tmp = lst->dist;
+					lst->dist = lst->next->dist;
+					lst->next->dist = tmp;
+					tmp = lst->count;
+					lst->count = lst->next->count;
+					lst->next->count = tmp;
+					mx_swap_elemint(&(lst->road_dist), &(lst->next->road_dist));
+					mx_swap_elemint(&(lst->road), &(lst->next->road));
+			}
 			for (int j = 1; j < lst->count; j++) {
 				if (lst->road[j] > lst->next->road[j]) {
 					int tmp = lst->dist;
@@ -443,30 +453,6 @@ t_res *mx_sort_list_res2(t_res *lst) {
 }
 
 
-void	mx_sort_list_res3(t_res *lst) {
-	bool sorted = false;
-	t_res *head = lst;
-
-	while (!sorted) {
-		sorted = true;
-		while (lst->next) {
-			if (lst->road[lst->count - 1] > lst->next->road[lst->next->count - 1]) {
-				int tmp = lst->dist;
-				lst->dist = lst->next->dist;
-				lst->next->dist = tmp;
-				tmp = lst->count;
-				lst->count = lst->next->count;
-				lst->next->count = tmp;
-				mx_swap_elemint(&(lst->road_dist), &(lst->next->road_dist));
-				mx_swap_elemint(&(lst->road), &(lst->next->road));
-				sorted = false;
-			}
-			lst = lst->next;
-		}
-		lst = head;
-	}
-}
-
 
 int main(int ac, char **av) {
 	t_island *p;
@@ -475,12 +461,11 @@ int main(int ac, char **av) {
 	char **str = mx_strsplit(f, '\n');
 	t_res **lst = (t_res **)malloc(sizeof(t_res *) * (count - 1));
 	t_res **res = (t_res **)malloc(sizeof(t_res *) * (count - 1));
+	
 
 	p = (t_island *)malloc(sizeof(t_island) * (count));
 	mx_parse_islands(p, str, count);
 	mx_parse_dist(p, f, count, str);
-	print_island_struct(p, count);
-	exit(0);
 	mx_del_strarr(&str);
 	free(f);
 	// printf("----------------\n");
@@ -491,8 +476,7 @@ int main(int ac, char **av) {
 	}
 	for (int j = 0; j < count - 1; j++) {
 		if (res[j]->dist != 0) {
-			mx_sort_list_res2(res[j]);
-			mx_sort_list_res3(res[j]);
+			res[j] = mx_sort_list_res2(res[j]);	
 			mx_print_res(res[j], p, count);
 		}
 	}
