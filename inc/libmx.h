@@ -29,6 +29,15 @@ typedef struct s_res {
 	struct s_res *next;
 }				t_res;
 
+#define ERROR_USAGE "usage: ./pathfinder [filename]\n"
+#define FILE_EXIST "error: file "
+#define FILE_EXIST2 " does not exist\n"
+#define EMPTY_FILE "error: file "
+#define EMPTY_FILE2 " is empty\n"
+#define LINE_ERROR "error: line 1 is not valid\n"
+#define LINE_VALUE "error: line "
+#define LINE_VALUE2 " is not valid\n"
+#define INVALID_ISLANDS "error: invalid number of islands\n"
 
 
 void mx_printchar(char c);
