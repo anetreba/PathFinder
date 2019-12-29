@@ -290,7 +290,7 @@ void double_del(char **s1, char **s2) {
 
 bool is_new_island(char *name, t_island *p, int count) {
 	for (int i = 0; i < count; i++) {
-		if (mx_strcmp(name, p[i].name) == 0)
+		if (mx_strcmp(name, p[i].name) == 0 && mx_strlen(name) == mx_strlen(p[i].name))
 			return false;
 	}
 	return true;
@@ -593,14 +593,17 @@ void validator_znakov(char *file, char **WordsA) {
 /***************************************************************************************************/
 
 void range_validator(char *file, char **WordsA) {
+	char *num = NULL;
 	for (int i = 1; WordsA[i]; i++) {
 		char **str = mx_strsplit(WordsA[i], ',');
-		if (!str_is_digit(str[1])) {
-			char *num = mx_itoa(i + 1);
-			mx_printerr(LINE_VALUE);
-			mx_printerr(num);
-			mx_printerr(LINE_VALUE2);
-			exit (0);
+		if (mx_arrlen(str) != 1) {
+			if (!str_is_digit(str[1]) || mx_atoi(str[1]) == 0) {
+				num = mx_itoa(i + 1);
+				mx_printerr(LINE_VALUE);
+				mx_printerr(num);
+				mx_printerr(LINE_VALUE2);
+				exit (0);
+			}
 		}
 		mx_del_strarr(&str);
 	}
@@ -703,46 +706,44 @@ void apex_count(char **WordsA) {
 
 /***************************************************************************************************/
 
-void print_error1(char *av, char **WordsA) {
+void mx_two_perenos(char *f) {
+	int len = mx_strlen(f);
+	int count = 0;
+
+	for (int i = 0; f[i + 1]; i++) {
+		if (f[i] == '\n')
+			count++;
+		if (f[i] == '\n' && f[i + 1] == '\n' && i != len - 1) {
+			count++;
+			char *num = mx_itoa(count);
+			mx_print_erno(num);
+			exit(0);
+		}
+	}
+}
+
+/***************************************************************************************************/
+
+void print_error1(char *av, char **WordsA, char *f) {
 	apex_count(WordsA);
 	mx_island_not_char(WordsA);
+	mx_two_perenos(f);
 	validator_znakov(av, WordsA);
 	range_validator(av, WordsA);
 	valid_island(WordsA);
 }
 
-void print_error2(int ac, char *av) {
+bool print_error2(int ac, char *av) {
 	argument(ac, av);
 	is_not_exist(av);
 	is_folder(av);
 	is_empty(av);
+	return true;
 }
 
 /***************************************************************************************************/
 
-int main(int ac, char **av) {
-	t_island *p;
-	
-	print_error2(ac, av[1]);
-	char *f = mx_file_to_str(av[1]);
-	char **str = mx_strsplit(f, '\n');
-	int count = mx_atoi(f);
-	print_error1(av[1], str);
-	
-	if (count == 0)
-		mx_invalid_num_of_is();
-	t_res **lst = (t_res **)malloc(sizeof(t_res *) * (count - 1));
-	t_res **res = (t_res **)malloc(sizeof(t_res *) * (count - 1));
-
-	p = (t_island *)malloc(sizeof(t_island) * (count));
-	mx_parse_islands(p, str, count);
-	mx_parse_dist(p, f, count, str);
-	mx_del_strarr(&str);
-	free(f);
-	for (int i = 0; i < count - 1; i++) {
-		lst[i] = mx_create_first_itter_list(p, i);
-		res[i] = mx_algorithm(p, lst[i], count, i);
-	}
+void mx_sort_print_res(t_res **res, t_island *p, int count) {
 	for (int j = 0; j < count - 1; j++) {
 		if (res[j]->dist != 0) {
 			mx_sort_list_res3(res[j]);
@@ -751,8 +752,34 @@ int main(int ac, char **av) {
 			mx_print_res(res[j], p, count);
 		}
 	}
+}
+
+void mx_parse_islands_dist(t_island *p, char **str, char *f, int count) {
+	mx_parse_islands(p, str, count);
+	mx_parse_dist(p, f, count, str);
+	mx_del_strarr(&str);
+	free(f);
+}
+
+int main(int ac, char **av) {
+	if (print_error2(ac, av[1])) {
+		char *f = mx_file_to_str(av[1]);
+		char **str = mx_strsplit(f, '\n');
+		int count = mx_atoi(f);
 	
-	// system("leaks -q a.out");
+		print_error1(av[1], str, f);
+		if (count == 0)
+			mx_invalid_num_of_is();
+		t_res **lst = (t_res **)malloc(sizeof(t_res *) * (count - 1));
+		t_res **res = (t_res **)malloc(sizeof(t_res *) * (count - 1));
+		t_island *p = (t_island *)malloc(sizeof(t_island) * (count));
 	
+		mx_parse_islands_dist(p, str, f, count);
+		for (int i = 0; i < count - 1; i++) {
+			lst[i] = mx_create_first_itter_list(p, i);
+			res[i] = mx_algorithm(p, lst[i], count, i);
+		}
+		mx_sort_print_res(res, p, count);
+	}
 	return 0;
 }
