@@ -36,6 +36,7 @@ typedef struct s_res {
 #define ROVNO "========================================\n"
 
 
+void mx_repeat_islands(char **str);
 t_res *mx_create_res(int *road, int count, int *road_dist, int dist);
 void mx_pop_front_res(t_res **head);
 void mx_push_back_res(t_res **list, int *road, int count

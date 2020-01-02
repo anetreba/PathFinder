@@ -19,6 +19,24 @@ void mx_print_erno(char *num) {
 	mx_printerr(LINE_VALUE2);
 }
 
+void mx_repeat_islands(char **str) {
+	char **s1;
+	char **s2;
+
+	for (int i = 1; str[i]; i++) {
+		s1 = mx_strsplit(str[i], '-');
+		s2 = mx_strsplit(s1[1], ',');
+		if (mx_strcmp(s1[0], s2[0]) == 0 
+			&& mx_strlen(s1[0]) == mx_strlen(s2[0])) {
+			char *num = mx_itoa(i + 1);
+
+			mx_print_erno(num);
+			exit (0);
+		}
+		mx_double_del(s1, s2);
+	}
+}
+
 void mx_island_not_char(char **str) {
 	char **s1;
 	char **s2;

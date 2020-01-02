@@ -15,7 +15,7 @@ int mx_atoi(const char *str) {
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
-	if (num > -2147483648 && num < 2147483647)
+	if (num >= -2147483648 && num <= 2147483647)
 		return num * sign;
 	return 0;
 }

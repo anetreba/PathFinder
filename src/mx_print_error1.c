@@ -16,6 +16,7 @@ void mx_print_error1(char **WordsA, char *f) {
 	mx_apex_count(WordsA);
 	mx_island_not_char(WordsA);
 	mx_two_perenos(f);
+	mx_repeat_islands(WordsA);
 	validator_znakov(WordsA);
 	range_validator(WordsA);
 	valid_island(WordsA);

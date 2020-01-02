@@ -74,7 +74,6 @@ void mx_sort_print_res(t_res **res, t_island *p, int count) {
 			mx_sort_list_res3(res[j]);
 			mx_sort_list_res4(res[j]);
 			mx_sort_list_res2(res[j]);
-			//printf("345\n");
 			mx_print_res(res[j], p, count);
 		}
 	}

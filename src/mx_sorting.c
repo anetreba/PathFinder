@@ -7,9 +7,8 @@ t_res *mx_sort_list_res(t_res *lst) {
 
 	if (i != size - 1) {
 		while (i < size) {
-			if (lst->dist > lst->next->dist) {
+			if (lst->dist > lst->next->dist)
 				mx_swap_elements_res(lst);
-			}
 			lst = lst->next;
 			i++;
 			if (i == size - 1) {
@@ -22,78 +21,29 @@ t_res *mx_sort_list_res(t_res *lst) {
 	return new;
 }
 
-//**********************************************
-
-
-void mx_print_list(t_res *lst) {
-	t_res *tmp = lst;
-	while (tmp)
-	{	
-		printf("****PRINT NEW ROAD***********\n");
-		printf("Road = ");
-		for (int i = 0; i < tmp->count; i++) {
-			printf("%d,", tmp->road[i]);
-		}
-		printf(" | ROAD_DIST = ");
-		for (int i = 0; i < tmp->count - 1; i++) {
-			printf("%d,", tmp->road_dist[i]);
-		}
-		printf(" | DIST = %d\n", tmp->dist);
-		tmp = tmp->next;
-		printf("***********END ROAD***********\n\n");
-	}
-}
-
-//+++++++++++++++++++++++++++++++++++++++++++++++
-
-// void mx_sort_list_res2(t_res *lst) {
-// 	int i = 0;
-// 	int size = mx_list_size_res(lst);
-// 	t_res *new = lst;
-
-// 	if (i != size - 1) {
-// 		while (i < size) {
-// 			if ((lst->road[lst->count - 1]
-// 				== lst->next->road[lst->next->count - 1]) 
-// 				&& (lst->count == lst->next->count)) {
-// 				for (int j = 1; j < lst->count - 1; j++) {
-// 					if (lst->road[j] > lst->next->road[j])
-// 						mx_swap_elements_res(lst);
-// 				}
-// 				lst = lst->next;
-// 				i++;
-// 				if (i == size - 1) {
-// 					lst = new;
-// 					i = 0;
-// 					size--;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
 void mx_sort_list_res2(t_res *lst) {
-	bool sorted = false;
-	t_res *head = lst;
+	int i = 0;
+	int size = mx_list_size_res(lst);
+	t_res *new = lst;
 
-	while (!sorted) {
-		sorted = true;
-		while (lst->next) {
+	if (i != size - 1)
+		while (i < size) {
 			if ((lst->road[lst->count - 1]
 				== lst->next->road[lst->next->count - 1]) 
-				&& (lst->count == lst->next->count)) {
-				for (int j = 1; j < lst->count - 1; j++) {
-					if (lst->road[j] > lst->next->road[j]) {
+				&& (lst->count == lst->next->count))
+				for (int j = 1; j < lst->count - 1; j++)
+					if (lst->road[j] > lst->next->road[j])
 						mx_swap_elements_res(lst);
-						sorted = false;
-					}
-				}
-			}
 			lst = lst->next;
+			i++;
+			if (i == size - 1) {
+				lst = new;
+				i = 0;
+				size--;
+			}	
 		}
-		lst = head;
-	}
 }
+
 
 void mx_sort_list_res3(t_res *lst) {
 	bool sorted = false;
