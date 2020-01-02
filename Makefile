@@ -1,89 +1,53 @@
-NAME = libmx.a
-CC = clang
+NAME = pathfinder
 
-INC_DIR = inc
+INC = pathfinder.h
+
+SRC = main.c \
+	mx_swap_elem_res.c \
+	mx_sorting.c \
+	mx_res_list.c \
+	mx_print_res.c \
+	mx_print_error2.c \
+	mx_print_error1.c \
+	mx_pop_elem_of_list.c \
+	mx_parse_islands.c \
+	mx_parse_dist.c \
+	mx_errors.c \
+	mx_algorithm.c
+
+OBJ = main.o \
+	mx_swap_elem_res.o \
+	mx_sorting.o \
+	mx_res_list.o \
+	mx_print_res.o \
+	mx_print_error2.o \
+	mx_print_error1.o \
+	mx_pop_elem_of_list.o \
+	mx_parse_islands.o \
+	mx_parse_dist.o \
+	mx_errors.o \
+	mx_algorithm.o
+
 
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
-LFLAGS = -I $(INC_DIR)
-
-SRC = mx_binary_search.c \
-	mx_bubble_sort.c \
-	mx_count_digits.c \
-	mx_count_substr.c \
-	mx_count_words.c \
-	mx_create_node.c \
-	mx_del_extra_spaces.c \
-	mx_del_strarr.c \
-	mx_file_to_str.c \
-	mx_foreach.c \
-	mx_get_char_index.c \
-	mx_get_substr_index.c \
-	mx_hex_to_nbr.c \
-	mx_is_space.c \
-	mx_itoa.c \
-	mx_list_size.c \
-	mx_memccpy.c \
-	mx_memchr.c \
-	mx_memcmp.c \
-	mx_memcpy.c \
-	mx_memmem.c \
-	mx_memmove.c \
-	mx_memrchr.c \
-	mx_memset.c \
-	mx_nbr_to_hex.c \
-	mx_pop_back.c \
-	mx_pop_front.c \
-	mx_pow.c \
-	mx_print_strarr.c \
-	mx_print_unicode.c \
-	mx_printchar.c \
-	mx_printint.c \
-	mx_printstr.c \
-	mx_push_back.c \
-	mx_push_front.c \
-	mx_quicksort.c \
-	mx_read_line.c \
-	mx_realloc.c \
-	mx_replace_substr.c \
-	mx_sort_list.c \
-	mx_sqrt.c \
-	mx_str_reverse.c \
-	mx_strcat.c \
-	mx_strcmp.c \
-	mx_strcpy.c \
-	mx_strdel.c \
-	mx_strdup.c \
-	mx_strjoin.c \
-	mx_strlen.c \
-	mx_strncpy.c \
-	mx_strndup.c \
-	mx_strnew.c \
-	mx_strsplit.c \
-	mx_strstr.c \
-	mx_strtrim.c \
-	mx_swap_char.c \
-	mx_swap_elem.c \
-	mx_count_letters.c \
-	mx_atoi.c \
-	mx_isdigit.c
-
-
-OBJ_DIR = ./obj/
-SRC_DIR = ./src/
-
-OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
-
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(LFLAGS) -o $@ -c $<
 
 all: install clean
 
-install: $(OBJ)
-	@mkdir -p $(OBJ_DIR)
-	@ar rc $(NAME) $(OBJ)
-clean:
-	@rm -rf $(OBJ_DIR)
+install:
+	@make install -sC libmx
+	@cp $(addprefix src/, $(SRC)) .
+	@cp $(addprefix inc/, $(INC)) .
+	@clang $(CFLAGS) -c $(SRC) -I $(INC)
+	@clang $(CFLAGS) libmx/libmx.a $(OBJ) -o $(NAME)
+	@mkdir -p obj
+	@mv $(OBJ) ./obj
+
 uninstall: clean
-	@rm -f $(NAME)
-reinstall: uninstall all
+	@make uninstall -sC libmx
+	@rm -rf $(NAME)
+
+clean:
+	@make clean -sC libmx
+	@rm -rf $(INC) $(SRC) ./obj
+
+reinstall: uninstall install
