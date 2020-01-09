@@ -21,10 +21,9 @@ t_res *mx_create_first_itter_list(t_island *p, int i) {
 	return lst;
 }
 
-void mx_create_res_active_island(t_res *lst, t_island p,
- 	int count, bool *active_islands) {
-	for (int k = 0; k < p.routes_count
-		&& lst->road[lst->count - 1] != count - 1; k++) {
+void mx_create_res_active_island(t_res *lst, t_island p, 
+	bool *active_islands) {
+	for (int k = 0; k < p.routes_count; k++) {
 		if (active_islands[p.d[k].index_point]) {
 			int *road = (int *)malloc(sizeof(int) * (lst->count + 1));
 			int *road_dist = (int *)malloc(sizeof(int) * (lst->count));
@@ -56,11 +55,12 @@ t_res *mx_algorithm(t_island *p, t_res *l, int count, int itter) {
 		l = mx_sort_list_res(l);
 		int i = l->road[l->count - 1];
 
-		mx_create_res_active_island(l, p[i], count, active_islands);
+		mx_create_res_active_island(l, p[i], active_islands);
 		if (l->count == 2 && k == 0 && l->road[0] < l->road[l->count - 1])
 			res = mx_create_res(l->road, l->count, l->road_dist, l->dist);
 		else if (l->road[0] < l->road[l->count - 1])
 			mx_push_back_res(&res, l->road, l->count, l->road_dist, l->dist);
+	
 		mx_pop_elem_of_list(l);
 		mx_pop_front_res(&l);
 		active_islands[i] = false;

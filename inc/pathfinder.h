@@ -54,8 +54,7 @@ void del_el_list(t_res *tmp);
 void mx_pop_elem_of_list(t_res *lst);
 t_res *mx_create_first_itter_list(t_island *p, int i);
 bool mx_repeat_value(int *road, int k, int count);
-void mx_create_res_active_island(t_res *lst, t_island p
-	, int count, bool *active_islands);
+void mx_create_res_active_island(t_res *lst, t_island p, bool *active_islands);
 void mx_res_empty(t_res *res);
 t_res *mx_algorithm(t_island *p, t_res *l, int count, int itter);
 void mx_double_del(char **s1, char **s2);

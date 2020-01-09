@@ -31,7 +31,7 @@ void mx_sort_list_res2(t_res *lst) {
 			if ((lst->road[lst->count - 1]
 				== lst->next->road[lst->next->count - 1]) 
 				&& (lst->count == lst->next->count))
-				for (int j = 1; j < lst->count - 1; j++)
+				for (int j = lst->count - 2; j ; j--)
 					if (lst->road[j] > lst->next->road[j])
 						mx_swap_elements_res(lst);
 			lst = lst->next;
