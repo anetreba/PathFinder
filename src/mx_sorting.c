@@ -21,6 +21,18 @@ t_res *mx_sort_list_res(t_res *lst) {
 	return new;
 }
 
+static void mx_check(t_res *lst) {
+	int j = 0;
+
+	if (lst->road[lst->count - 1]
+		== lst->next->road[lst->next->count - 1]) {
+		while (lst->road[j] == lst->next->road[j]) 
+			j++;
+		if (lst->road[j] > lst->next->road[j]) 
+			mx_swap_elements_res(lst);
+	}
+}
+
 void mx_sort_list_res2(t_res *lst) {
 	int i = 0;
 	int size = mx_list_size_res(lst);
@@ -28,57 +40,57 @@ void mx_sort_list_res2(t_res *lst) {
 
 	if (i != size - 1)
 		while (i < size) {
-			if ((lst->road[lst->count - 1]
-				== lst->next->road[lst->next->count - 1]) 
-				&& (lst->count == lst->next->count))
-				for (int j = lst->count - 2; j ; j--)
-					if (lst->road[j] > lst->next->road[j])
-						mx_swap_elements_res(lst);
+			mx_check(lst);
 			lst = lst->next;
 			i++;
 			if (i == size - 1) {
 				lst = new;
 				i = 0;
 				size--;
-			}	
+			}
 		}
 }
 
 
 void mx_sort_list_res3(t_res *lst) {
-	bool sorted = false;
-	t_res *head = lst;
+	int i = 0;
+	int size = mx_list_size_res(lst);
+	t_res *new = lst;
 
-	while (!sorted) {
-		sorted = true;
-		while (lst->next) {
+	if (i != size - 1) {
+		while (i < size) {
 			if (lst->road[lst->count - 1]
-				> lst->next->road[lst->next->count - 1]) {
+				> lst->next->road[lst->next->count - 1]) 
 				mx_swap_elements_res(lst);
-				sorted = false;
-			}
 			lst = lst->next;
+			i++;
+			if (i == size - 1) {
+				lst = new;
+				i = 0;
+				size--;
+			}
 		}
-		lst = head;
 	}
 }
 
 void mx_sort_list_res4(t_res *lst) {
-	bool sorted = false;
-	t_res *head = lst;
+	int i = 0;
+	int size = mx_list_size_res(lst);
+	t_res *new = lst;
 
-	while (!sorted) {
-		sorted = true;
-		while (lst->next) {
+	if (i != size - 1) {
+		while (i < size) {
 			if (lst->road[lst->count - 1]
-				== lst->next->road[lst->next->count - 1]) {
-				if (lst->count < lst->next->count) {
+				== lst->next->road[lst->next->count - 1]) 
+				if (lst->count < lst->next->count) 
 					mx_swap_elements_res(lst);
-					sorted = false;
-				}
-			}
 			lst = lst->next;
+			i++;
+			if (i == size - 1) {
+				lst = new;
+				i = 0;
+				size--;
+			}
 		}
-		lst = head;
 	}
 }

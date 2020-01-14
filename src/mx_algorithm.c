@@ -60,7 +60,6 @@ t_res *mx_algorithm(t_island *p, t_res *l, int count, int itter) {
 			res = mx_create_res(l->road, l->count, l->road_dist, l->dist);
 		else if (l->road[0] < l->road[l->count - 1])
 			mx_push_back_res(&res, l->road, l->count, l->road_dist, l->dist);
-	
 		mx_pop_elem_of_list(l);
 		mx_pop_front_res(&l);
 		active_islands[i] = false;
